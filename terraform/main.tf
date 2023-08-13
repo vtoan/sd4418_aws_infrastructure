@@ -93,9 +93,11 @@ resource "azurerm_linux_virtual_machine" "example" {
   location            = azurerm_resource_group.example.location
   size                = "Standard_F2"
 
-  admin_username                  = "adminuser"
-  admin_password                  = "Pa55w0rd$"
-  disable_password_authentication = false
+  admin_username = "adminuser"
+  admin_ssh_key {
+    username   = "adminuser"
+    public_key = file("~/.ssh/id_rsa.pub")
+  }
 
   network_interface_ids = [
     azurerm_network_interface.example.id,
@@ -117,7 +119,7 @@ resource "azurerm_linux_virtual_machine" "example" {
 
 ### SETUP CONATINER REGISTRY
 resource "azurerm_container_registry" "example" {
-  name                = "exampleArc1308"
+  name                = "exampleArc13080905"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
   sku                 = "Basic"

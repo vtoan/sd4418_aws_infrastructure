@@ -2,9 +2,9 @@ output "rg_name" {
   value = azurerm_resource_group.example.name
 }
 
-output "vm_pip" {
-  value = azurerm_public_ip.example.ip_address
-}
+# output "vm_pip" {
+#   value = azurerm_public_ip.example.ip_address
+# }
 
 output "client_certificate" {
   value     = azurerm_kubernetes_cluster.example.kube_config.0.client_certificate

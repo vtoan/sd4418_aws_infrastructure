@@ -2,13 +2,12 @@ output "rg_name" {
   value = azurerm_resource_group.example.name
 }
 
-# output "vm_pip" {
-#   value = azurerm_public_ip.example.ip_address
-# }
+output "acr_name" {
+  value = azurerm_container_registry.example.name
+}
 
-output "client_certificate" {
-  value     = azurerm_kubernetes_cluster.example.kube_config.0.client_certificate
-  sensitive = true
+output "kube_cluster_name" {
+  value = azurerm_kubernetes_cluster.example.name
 }
 
 output "kube_config" {
@@ -16,6 +15,7 @@ output "kube_config" {
   sensitive = true
 }
 
-output "kube_cluster_name" {
-  value = azurerm_kubernetes_cluster.example.name
+output "client_certificate" {
+  value     = azurerm_kubernetes_cluster.example.kube_config.0.client_certificate
+  sensitive = true
 }

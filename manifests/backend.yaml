@@ -28,6 +28,6 @@ spec:
       containers:
         - name: backend
           image: examplearchippo.azurecr.io/backend
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000

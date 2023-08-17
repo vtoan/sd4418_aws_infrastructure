@@ -29,6 +29,6 @@ spec:
       containers:
         - name: frontend
           image: examplearchippo.azurecr.io/frontend
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000

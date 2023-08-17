@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: examplearchippo.azurecr.io/frontend
+          image: examplearcspider.azurecr.io/msa-frontend
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000

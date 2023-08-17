@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: examplearchippo.azurecr.io/backend
+          image: examplearcspider.azurecr.io/msa-backend
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000

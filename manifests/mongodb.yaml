@@ -3,11 +3,12 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: mongo-sc
-provisioner: kubernetes.io/azure-file
+provisioner: disk.csi.azure.com
 parameters:
-  skuName: Standard_LRS
-  location: southeastasia
-  storageAccount: cs110033fffa4fe0cc3
+  skuname: StandardSSD_LRS
+allowVolumeExpansion: true
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer
 
 ---
 apiVersion: v1

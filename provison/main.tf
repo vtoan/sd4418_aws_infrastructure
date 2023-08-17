@@ -1,7 +1,6 @@
 # ============= Resource Group =============
-resource "random_id" "rg_name" {
+resource "random_pet" "rg_name" {
   prefix = var.rg_name_prefix
-  byte_length = 4
 }
 
 resource "azurerm_resource_group" "example" {

@@ -1,6 +1,7 @@
 # ============= Resource Group =============
-resource "random_pet" "rg_name" {
+resource "random_id" "rg_name" {
   prefix = var.rg_name_prefix
+  byte_length = 4
 }
 
 resource "azurerm_resource_group" "example" {
@@ -27,7 +28,9 @@ resource "azurerm_subnet" "example" {
 resource "random_pet" "acr_name" {
   prefix    = "exampleArc"
   separator = ""
+  length = 1
 }
+
 resource "azurerm_container_registry" "example" {
   name                = random_pet.acr_name.id
   resource_group_name = azurerm_resource_group.example.name
@@ -60,12 +63,3 @@ resource "azurerm_kubernetes_cluster" "example" {
     type = "SystemAssigned"
   }
 }
-
-# Attaching a Container Registry to a AKS (need Owner permission for Service Principal)
-resource "azurerm_role_assignment" "example" {
-  principal_id                     = azurerm_kubernetes_cluster.example.kubelet_identity[0].object_id
-  role_definition_name             = "AcrPull"
-  scope                            = azurerm_container_registry.example.id
-  skip_service_principal_aad_check = true
-}
-

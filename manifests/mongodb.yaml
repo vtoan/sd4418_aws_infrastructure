@@ -6,7 +6,7 @@ metadata:
 provisioner: kubernetes.io/aws-ebs
 parameters:
   type: gp2
-volumeBindingMode: WaitForFirstConsumer
+volumeBindingMode: Immediate
 
 ---
 apiVersion: v1
@@ -55,16 +55,16 @@ spec:
     spec:
       terminationGracePeriodSeconds: 10
       containers:
-      - name: mongo
-        image: mongo
-        ports:
-          - containerPort: 27017
-        envFrom:
-         - configMapRef:             
-               name: mongo-config
-         - secretRef:
-             name: mongo-secrets
-        volumeMounts:
+        - name: mongo
+          image: mongo
+          ports:
+            - containerPort: 27017
+          envFrom:
+            - configMapRef:
+                name: mongo-config
+            - secretRef:
+                name: mongo-secrets
+          volumeMounts:
             - name: data-volume
               mountPath: /data/db
   volumeClaimTemplates:
@@ -77,5 +77,3 @@ spec:
         resources:
           requests:
             storage: "1Gi"
-
-

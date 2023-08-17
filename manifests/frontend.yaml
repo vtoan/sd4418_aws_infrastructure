@@ -28,8 +28,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: hnguyencanh/frontend:latest
+          image: examplearchippo.azurecr.io/frontend
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
-

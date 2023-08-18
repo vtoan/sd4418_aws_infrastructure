@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: examplearcbird.azurecr.io/msa-frontend
+          image: examplearcmollusk.azurecr.io/msa-frontend
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000

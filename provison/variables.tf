@@ -37,25 +37,6 @@ variable "aks_subnet_address_prefix" {
   description = "Subnet address prefix."
   default     = "192.168.0.0/24"
 }
-
-variable "app_gateway_subnet_address_prefix" {
-  type        = string
-  description = "Subnet server IP address."
-  default     = "192.168.1.0/24"
-}
-
-variable "app_gateway_sku" {
-  type        = string
-  description = "Name of the Application Gateway SKU"
-  default     = "Standard_v2"
-}
-
-variable "app_gateway_tier" {
-  type        = string
-  description = "Tier of the Application Gateway tier"
-  default     = "Standard_v2"
-}
-
 # ======= AKS NETWORK =======
 variable "aks_docker_bridge_cidr" {
   type        = string

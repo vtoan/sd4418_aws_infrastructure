@@ -27,9 +27,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: examplearcmollusk.azurecr.io/msa-backend:latest
+          image: examplearcgoose.azurecr.io/msa-backend:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
-      imagePullSecrets:
-        - name: acr-secret-argocd

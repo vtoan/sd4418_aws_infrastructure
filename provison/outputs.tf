@@ -19,3 +19,7 @@ output "client_certificate" {
   value     = azurerm_kubernetes_cluster.example.kube_config.0.client_certificate
   sensitive = true
 }
+
+output "app_ip_address" {
+  value = azurerm_public_ip.example.ip_address
+}

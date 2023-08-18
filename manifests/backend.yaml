@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: examplearcgoose.azurecr.io/msa-backend:latest
+          image: examplearcgoose.azurecr.io/msa-backend:${tag}
           imagePullPolicy: Always
           ports:
             - containerPort: 3000

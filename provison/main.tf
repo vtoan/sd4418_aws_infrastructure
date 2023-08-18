@@ -60,7 +60,7 @@ resource "azurerm_public_ip" "example" {
 }
 
 resource "azurerm_application_gateway" "network" {
-  name                = var.app_gateway_name
+  name                = "appGateway1"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
 
@@ -123,7 +123,7 @@ resource "azurerm_application_gateway" "network" {
 resource "random_pet" "acr_name" {
   prefix    = "exampleArc"
   separator = ""
-  length = 1
+  length    = 1
 }
 
 resource "azurerm_container_registry" "example" {
@@ -151,10 +151,10 @@ resource "azurerm_kubernetes_cluster" "example" {
   http_application_routing_enabled = false
 
   default_node_pool {
-    name       = "default"
-    node_count = 1
-    vm_size    = "Standard_B2s"
-    vnet_subnet_id  = data.azurerm_subnet.kubesubnet.id
+    name           = "default"
+    node_count     = 1
+    vm_size        = "Standard_B2s"
+    vnet_subnet_id = data.azurerm_subnet.kubesubnet.id
   }
 
   identity {

@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: examplearcgoose.azurecr.io/msa-frontend:138
+          image: examplearcgoose.azurecr.io/msa-frontend:139
           imagePullPolicy: Always
           ports:
             - containerPort: 3000

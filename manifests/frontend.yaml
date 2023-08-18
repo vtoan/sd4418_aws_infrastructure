@@ -33,4 +33,4 @@ spec:
           ports:
             - containerPort: 3000
           imagePullSecrets:
-            - name: acr-secret
+            - name: acr-secret-argocd
